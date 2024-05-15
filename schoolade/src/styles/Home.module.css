@@ -24,3 +24,21 @@
 .formContainer {
     margin-top: 10px;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .buttonGroup {
+        flex-direction: column;
+    }
+
+    .submitButton,
+    .cancelButton {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .submitButton:last-child,
+    .cancelButton:last-child {
+        margin-bottom: 0;
+    }
+}

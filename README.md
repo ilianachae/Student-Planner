@@ -76,6 +76,7 @@ For full credit, your site should:
 * https://gpadmissions.osu.edu/resources/calculate-gpa.html
 * https://gpacalculator.net/cumulative-cgpa-calculator/
 * https://gpacalculator.io/cumulative-gpa-calculator/
+* https://blog.logrocket.com/css-breakpoints-responsive-design/
 
 ## Known Errors
 

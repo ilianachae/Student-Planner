@@ -18,11 +18,17 @@ const gradeToPoints = {
 export const calculateGpa = (courses) => {
     if (!courses || courses.length === 0) return 0;
 
-    const totalCredits = courses.reduce((acc, course) => {
+    const validCourses = courses.filter(course => 
+        course.grade !== 'In Progress' && 
+        course.countTowardGpa &&
+        !course.isPassFail
+    );
+
+    const totalCredits = validCourses.reduce((acc, course) => {
         return course && course.credits ? acc + course.credits : acc;
     }, 0);
 
-    const totalPoints = courses.reduce((acc, course) => {
+    const totalPoints = validCourses.reduce((acc, course) => {
         return course && course.credits && gradeToPoints[course.grade] !== undefined
             ? acc + gradeToPoints[course.grade] * course.credits
             : acc;

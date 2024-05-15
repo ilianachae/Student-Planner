@@ -18,16 +18,16 @@ const AssignmentForm = ({ onAddAssignment, onCancel }) => {
 
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
-            <div>
-                <label>Task</label>
+            <div className={styles.formGroup}>
+                <label>Task: </label>
                 <input type="text" value={task} onChange={(e) => setTask(e.target.value)} required />
             </div>
-            <div>
-                <label>Score</label>
+            <div className={styles.formGroup}>
+                <label>Score: </label>
                 <input type="number" value={score} onChange={(e) => setScore(e.target.value)} required />
             </div>
-            <div>
-                <label>Max Score</label>
+            <div className={styles.formGroup}>
+                <label>Max Score: </label>
                 <input type="number" value={maxScore} onChange={(e) => setMaxScore(e.target.value)} required />
             </div>
             <div className={styles.buttonGroup}>

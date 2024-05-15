@@ -23,6 +23,9 @@
 }
 
 .courseCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #b39ddb;
     padding: 10px;
     margin: 10px 0;
@@ -33,6 +36,15 @@
 
 .courseCard:hover {
     background-color: #9575cd;
+}
+
+.courseName {
+    flex: 1;
+    text-align: left;
+}
+
+.courseGrade {
+    text-align: right;
 }
 
 /* /components/SemesterList.js */
@@ -65,4 +77,23 @@
     padding: 20px;
     border-radius: 8px;
     margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .courseCard {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .courseName,
+    .courseGrade {
+        text-align: left;
+        padding-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .addButton {
+        padding: 8px 16px;
+    }
 }
