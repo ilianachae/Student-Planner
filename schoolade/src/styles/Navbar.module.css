@@ -1,0 +1,17 @@
+.navbar {
+    background-color: #ffeb3b;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addButton, .exportButton {
+    background-color: #03a9f4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}

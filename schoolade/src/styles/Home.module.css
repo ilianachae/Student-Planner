@@ -1,0 +1,26 @@
+.main {
+    padding: 20px;
+}
+
+.gpaSection, .semesterSection, .courseSection, .assignmentSection {
+    margin-bottom: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addButton {
+    background-color: #03a9f4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.formContainer {
+    margin-top: 10px;
+}

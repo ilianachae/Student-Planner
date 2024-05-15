@@ -1,0 +1,14 @@
+.gpaContainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.gpaBox {
+    background-color: #e0f7fa;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    flex: 1;
+    margin: 0 10px;
+}
