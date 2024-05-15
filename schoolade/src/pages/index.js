@@ -40,6 +40,11 @@ export default function Home() {
     const majorGpa = calculateGpa(semesters.flatMap(sem => (sem.courses || []).filter(course => course.isMajor)));
     const minorGpa = calculateGpa(semesters.flatMap(sem => (sem.courses || []).filter(course => course.isMinor)));
 
+    const handleAddSemester = (semester) => {
+        setSemesters([...semesters, semester]);
+        setShowSemesterForm(false);
+    };
+
     const handleAddCourse = (course) => {
         if (!selectedSemester) return;
 
@@ -80,14 +85,18 @@ export default function Home() {
                     <GPACalculator gpa={cumulativeGpa} majorGpa={majorGpa} minorGpa={minorGpa} />
                 </section>
                 <section className={styles.semesterSection}>
-                    <SemesterList semesters={semesters} onSelectSemester={setSelectedSemester} onAddSemesterClick={handleAddSemesterClick} />
+                    <SemesterList
+                        semesters={semesters}
+                        onSelectSemester={(semester) => {
+                            setSelectedSemester(semester);
+                            setSelectedCourse(null); // Reset selected course when a new semester is selected
+                        }}
+                        onAddSemesterClick={handleAddSemesterClick}
+                    />
                     {showSemesterForm && (
                         <div className={styles.formContainer}>
                             <SemesterForm
-                                onAddSemester={(semester) => {
-                                    setSemesters([...semesters, semester]);
-                                    setShowSemesterForm(false);
-                                }}
+                                onAddSemester={handleAddSemester}
                                 onCancel={() => setShowSemesterForm(false)}
                             />
                         </div>
@@ -95,7 +104,11 @@ export default function Home() {
                 </section>
                 {selectedSemester && (
                     <section className={styles.courseSection}>
-                        <CourseList courses={selectedSemester.courses || []} onSelectCourse={setSelectedCourse} onAddCourseClick={handleAddCourseClick} />
+                        <CourseList
+                            courses={selectedSemester.courses || []}
+                            onSelectCourse={setSelectedCourse}
+                            onAddCourseClick={handleAddCourseClick}
+                        />
                         {showCourseForm && (
                             <div className={styles.formContainer}>
                                 <CourseForm
@@ -108,18 +121,22 @@ export default function Home() {
                 )}
                 {selectedCourse && (
                     <section className={styles.assignmentSection}>
-                        <ToDoList tasks={selectedCourse.assignments || []} setTasks={(updatedTasks) => {
-                            const updatedCourses = (selectedSemester.courses || []).map(course =>
-                                course === selectedCourse ? { ...course, assignments: updatedTasks } : course
-                            );
+                        <ToDoList
+                            tasks={selectedCourse.assignments || []}
+                            setTasks={(updatedTasks) => {
+                                const updatedCourses = (selectedSemester.courses || []).map(course =>
+                                    course === selectedCourse ? { ...course, assignments: updatedTasks } : course
+                                );
 
-                            const updatedSemesters = semesters.map(sem =>
-                                sem === selectedSemester ? { ...sem, courses: updatedCourses } : sem
-                            );
+                                const updatedSemesters = semesters.map(sem =>
+                                    sem === selectedSemester ? { ...sem, courses: updatedCourses } : sem
+                                );
 
-                            setSemesters(updatedSemesters);
-                            setSelectedCourse({ ...selectedCourse, assignments: updatedTasks });
-                        }} onAddAssignmentClick={handleAddAssignmentClick} />
+                                setSemesters(updatedSemesters);
+                                setSelectedCourse({ ...selectedCourse, assignments: updatedTasks });
+                            }}
+                            onAddAssignmentClick={handleAddAssignmentClick}
+                        />
                         {showAssignmentForm && (
                             <div className={styles.formContainer}>
                                 <AssignmentForm

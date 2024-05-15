@@ -66,11 +66,17 @@ For full credit, your site should:
 - Keep track of user interaction using state 
 - Fetch data from either an internal source or third party API or persist data to a third party tool / database
 
-
-
 ## Information
 
-- ILIANA CHAE
+* ILIANA CHAE
 
 ## Reference
 
+* https://www.rapidtables.com/calc/grade/grade-calculator.html
+* https://gpadmissions.osu.edu/resources/calculate-gpa.html
+* https://gpacalculator.net/cumulative-cgpa-calculator/
+* https://gpacalculator.io/cumulative-gpa-calculator/
+
+## Known Errors
+
+* assignment function is disappeared when the user clicks the other courses
