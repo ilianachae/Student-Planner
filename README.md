@@ -1,5 +1,8 @@
 # Student Assistance Website
 
+https://school-assistance.netlify.app/
+https://github.com/ilianachae/Student-Planner.git
+
 ## purpose
 
 help to track the grade and develop their grade with to do list function and gpa/grade calculator functions
@@ -88,4 +91,13 @@ For full credit, your site should:
 ## Known Errors
 
 * assignment function is disappeared when the user clicks the other courses
+* able to deploy but can't see the website through netlify
 
+## Build Insructions
+
+* <code> cd schoolade </code>
+* <code> npm run dev </code>
+
+## Execution Instructions
+
+* check the link of localhost to view the website
