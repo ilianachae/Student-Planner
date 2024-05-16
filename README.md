@@ -1,5 +1,12 @@
 # Student Assistance Website
 
+## purpose
+
+help to track the grade and develop their grade with to do list function and gpa/grade calculator functions
+
+* all the data is stock in an internal source and removed when it's refreshed but the user still can export the data through excel file
+
+
 ## Features
 
 ### GPA
@@ -81,3 +88,4 @@ For full credit, your site should:
 ## Known Errors
 
 * assignment function is disappeared when the user clicks the other courses
+
